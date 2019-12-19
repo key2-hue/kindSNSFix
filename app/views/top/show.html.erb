@@ -1,13 +1,26 @@
 <p><%= @eachTopic.title %><p>
 
 <% @commentAll.each do |c|%>
+<% if user_signed_in? %>
+  <% if c.user.name == current_user.name %>
+    <p class="userName"><%= c.user.name%>さん</p>
+    <p><%= c.word %></p>
+    <p class="eachComment" >aaa</p>
+  <% else %>
+    <p class="userName"><%= c.user.name%>さん</p>
+    <p class="eachComment" ><%= c.word %></p>
+  <% end %>
+<% else %>
+  <p class="userName"><%= c.user.name%>さん</p>
   <p class="eachComment" ><%= c.word %></p>
+<% end %>
 <% end %>
 
 <% if user_signed_in? %>
   <p>コメントする</p>
   <%= form_for @comment, url: comment_index_path, method: :post do |c| %>
-    <%= c.label "コメント"%><%= c.text_area :word %>
+    <%= c.label "コメント"%><br />
+    <%= c.text_area :word %><br />
     <%= c.hidden_field :top_id, value: @eachTopic.id %>
     <%= c.hidden_field :user_id, value: @user%>
     <%= c.submit "送信" %>

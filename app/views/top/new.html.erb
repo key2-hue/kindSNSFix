@@ -2,5 +2,6 @@
   <%= f.label "タイトル"%><%=f.text_field :title %>
   <%= f.label "ジャンル" %><%=f.select :genre, ["悩み","嬉しいこと","雑談"]%>
   <%= f.label "本文"%><%=f.text_area :content%> 
+  <%= f.hidden_field :userName, value: current_user.name %>
   <%= f.submit "送信" %> 
 <% end %>

@@ -1,3 +1,6 @@
 <% @topics.each do |topic| %>
-  <p><%=link_to topic.title, top_path(topic.id) %></p>
+  <div class="topicAll">
+    <p><%=link_to topic.title, top_path(topic.id), class:"topicTitle" %></p>
+    <p>投稿者<%= topic.userName %>さん</p> 
+  </div>
 <% end %> 

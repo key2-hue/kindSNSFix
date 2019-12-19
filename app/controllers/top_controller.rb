@@ -13,7 +13,7 @@ class TopController < ApplicationController
     @comment = Comment.new
     @top = TopUser.new;
     @commentAll = Comment.where(top_id: @eachTopic).order(created_at: "ASC");
-    @user = current_user.id
+    
   end
 
   def create
@@ -24,7 +24,7 @@ class TopController < ApplicationController
   end
 
   def top_params
-    params.require(:top).permit(:title, :genre, :content)
+    params.require(:top).permit(:title, :genre, :content, :userName)
   end
 
   
