@@ -8,6 +8,7 @@ class TopController < ApplicationController
     @eachTopic = Top.find(params[:id]);
     @comment = Comment.new
     @top = TopUser.new;
+    @commentAll = Comment.where(top_id: @eachTopic).order(created_at: "ASC");
     @user = current_user.id
   end
 

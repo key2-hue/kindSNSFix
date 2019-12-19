@@ -1,5 +1,9 @@
 <p><%= @eachTopic.title %><p>
 
+<% @commentAll.each do |c|%>
+  <p><%= c.word %></p>
+<% end %>
+
 <% if user_signed_in? %>
   <p>コメントする</p>
   <%= form_for @comment, url: top_index_path, method: :post do |c| %>
