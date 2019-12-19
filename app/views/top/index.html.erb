@@ -1,0 +1,3 @@
+<% @topics.each do |topic| %>
+  <p><%=link_to topic.title, top_path(topic.id) %></p>
+<% end %> 

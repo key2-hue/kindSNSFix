@@ -1,3 +1,23 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//application.html.erb
+.kindSNS {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin-left: 20px;
+}
+
+.newRegistration, .login, .logout {
+  margin: 30px 20px 0 0;
+  text-decoration: none;
+  color: skyblue;
+}
+
+.topRight {
+  margin-top: 30px;
+} 

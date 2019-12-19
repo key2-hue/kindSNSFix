@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_062501) do
+ActiveRecord::Schema.define(version: 2019_12_19_065425) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "top_id"
+    t.bigint "user_id"
+    t.index ["top_id"], name: "index_comments_on_top_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "top_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "top_id"
+    t.index ["top_id"], name: "index_top_users_on_top_id"
+    t.index ["user_id"], name: "index_top_users_on_user_id"
   end
 
   create_table "tops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -41,4 +54,8 @@ ActiveRecord::Schema.define(version: 2019_12_19_062501) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "tops"
+  add_foreign_key "comments", "users"
+  add_foreign_key "top_users", "tops"
+  add_foreign_key "top_users", "users"
 end
