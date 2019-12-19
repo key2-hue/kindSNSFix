@@ -1,5 +1,4 @@
 class Comment < ApplicationRecord
-  has_many :topUsers
-  has_many :users, through: :topUsers
-  has_many :comments
+  belongs_to :top
+  belongs_to :user
 end

@@ -14,7 +14,7 @@ class TopController < ApplicationController
   def create 
     @comment = Comment.new(comment_params)
     if @comment.save
-      TopUser.create(user_id: 1, top_id: 1)
+      TopUser.create(user_id: @comment.user_id, top_id: @comment.top_id)
       redirect_to top_index_path
     end
   end
