@@ -3,9 +3,13 @@
   <p>投稿者<%= @eachTopic.userName %>さん</p>
   <p><%= @eachTopic.content %><p>
   <%= link_to '削除', top_path(@eachTopic.id), method: :delete %>
+  <%= react_component('HelloMessage', name: 'Mike') %>
  <% else %>
   <p><%= @eachTopic.title %><p>
 <% end %>
+
+
+
 
 <% @commentAll.each.with_index(1) do |c, index|%>
 <% if user_signed_in? %>
