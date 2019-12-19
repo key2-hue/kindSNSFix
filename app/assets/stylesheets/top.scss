@@ -17,11 +17,23 @@
 
 //show.html.erb
 
+.eachComment {
+  border-bottom: 1px solid gray;
+}
+
 .deleteComment {
   text-decoration: none;
 }
 
 .userName {
   margin-top: 30px;
+}
+
+.erase {
+  display: flex;
+}
+
+.erase > p {
+  margin:0 5px 0 0;
 }
 

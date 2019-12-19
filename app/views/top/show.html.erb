@@ -1,28 +1,32 @@
 <% if @eachTopic.userName == current_user.name %>
-  <p><%= @eachTopic.title %><p>
+  <h2><%= @eachTopic.title %></h2>
+  <p>投稿者<%= @eachTopic.userName %>さん</p>
+  <p><%= @eachTopic.content %><p>
   <%= link_to '削除', top_path(@eachTopic.id), method: :delete %>
  <% else %>
   <p><%= @eachTopic.title %><p>
 <% end %>
 
-<% @commentAll.each do |c|%>
+<% @commentAll.each.with_index(1) do |c, index|%>
 <% if user_signed_in? %>
   <% if c.user.name == current_user.name %>
     <div class="eachComment">
-      <p class="userName"><%= c.user.name%>さん</p>
-      <p><%= c.word %></p>
-      <%=link_to '削除', comment_path(c.id), method: :delete, class:"deleteComment"%>
+      <p class="userName"><%= index %>.<%= c.user.name%>さん</p>
+      <div class="erase">
+        <p><%= c.word %></p>
+        <%=link_to '削除', comment_path(c.id), method: :delete, class:"deleteComment"%>
+      </div>
     </div>
   <% else %>
     <div class="eachComment">
       <p class="userName"><%= c.user.name%>さん</p>
-      <p class="eachComment" ><%= c.word %></p>
+      <p class="comment" ><%= c.word %></p>
     </div>
   <% end %>
 <% else %>
   <div class="eachComment">
     <p class="userName"><%= c.user.name%>さん</p>
-    <p class="eachComment" ><%= c.word %></p>
+    <p class="comment" ><%= c.word %></p>
   </div>
 <% end %>
 <% end %>
