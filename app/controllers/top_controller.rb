@@ -1,5 +1,9 @@
 class TopController < ApplicationController
 
+  def new
+    @top = Top.new
+  end
+
   def index
     @topics = Top.all.order(created_at: "DESC");
   end
@@ -12,16 +16,17 @@ class TopController < ApplicationController
     @user = current_user.id
   end
 
-  def create 
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      TopUser.create(user_id: @comment.user_id, top_id: @comment.top_id)
+  def create
+    @top = Top.new(top_params)
+    if @top.save
       redirect_to top_index_path
     end
   end
 
-  def comment_params
-    params.require(:comment).permit(:top_id, :user_id, :word)
+  def top_params
+    params.require(:top).permit(:title, :genre, :content)
   end
+
+  
 end
 

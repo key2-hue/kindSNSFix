@@ -13,7 +13,10 @@
     <div class="kindSNS">
       <% if user_signed_in? %>
         <h1 class="title">優しい掲示板</h1>
-        <%=link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"logout"%>
+        <div class="topRight">
+          <%=link_to '新規投稿', new_top_path, class: "newPost"%>
+          <%=link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"logout"%>
+        </div>
       <% else %>
         <h1 class="title">優しい掲示板</h1>
         <div class="topRight">

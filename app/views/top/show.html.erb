@@ -1,12 +1,12 @@
 <p><%= @eachTopic.title %><p>
 
 <% @commentAll.each do |c|%>
-  <p><%= c.word %></p>
+  <p class="eachComment" ><%= c.word %></p>
 <% end %>
 
 <% if user_signed_in? %>
   <p>コメントする</p>
-  <%= form_for @comment, url: top_index_path, method: :post do |c| %>
+  <%= form_for @comment, url: comment_index_path, method: :post do |c| %>
     <%= c.label "コメント"%><%= c.text_area :word %>
     <%= c.hidden_field :top_id, value: @eachTopic.id %>
     <%= c.hidden_field :user_id, value: @user%>
@@ -15,3 +15,4 @@
 <% else %>
   <p>コメントできません</p>
 <% end %> 
+<%=link_to '戻る', top_index_path %>

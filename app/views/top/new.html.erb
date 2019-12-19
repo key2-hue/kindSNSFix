@@ -1,0 +1,6 @@
+<%= form_for @top, url: top_index_path, method: :post do |f| %>
+  <%= f.label "タイトル"%><%=f.text_field :title %>
+  <%= f.label "ジャンル" %><%=f.select :genre, ["悩み","嬉しいこと","雑談"]%>
+  <%= f.label "本文"%><%=f.text_area :content%> 
+  <%= f.submit "送信" %> 
+<% end %>
