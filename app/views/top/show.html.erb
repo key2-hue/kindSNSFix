@@ -1,18 +1,29 @@
-<p><%= @eachTopic.title %><p>
+<% if @eachTopic.userName == current_user.name %>
+  <p><%= @eachTopic.title %><p>
+  <%= link_to '削除', top_path(@eachTopic.id), method: :delete %>
+ <% else %>
+  <p><%= @eachTopic.title %><p>
+<% end %>
 
 <% @commentAll.each do |c|%>
 <% if user_signed_in? %>
   <% if c.user.name == current_user.name %>
-    <p class="userName"><%= c.user.name%>さん</p>
-    <p><%= c.word %></p>
-    <p class="eachComment" >aaa</p>
+    <div class="eachComment">
+      <p class="userName"><%= c.user.name%>さん</p>
+      <p><%= c.word %></p>
+      <%=link_to '削除', comment_path(c.id), method: :delete, class:"deleteComment"%>
+    </div>
   <% else %>
-    <p class="userName"><%= c.user.name%>さん</p>
-    <p class="eachComment" ><%= c.word %></p>
+    <div class="eachComment">
+      <p class="userName"><%= c.user.name%>さん</p>
+      <p class="eachComment" ><%= c.word %></p>
+    </div>
   <% end %>
 <% else %>
-  <p class="userName"><%= c.user.name%>さん</p>
-  <p class="eachComment" ><%= c.word %></p>
+  <div class="eachComment">
+    <p class="userName"><%= c.user.name%>さん</p>
+    <p class="eachComment" ><%= c.word %></p>
+  </div>
 <% end %>
 <% end %>
 
@@ -22,7 +33,7 @@
     <%= c.label "コメント"%><br />
     <%= c.text_area :word %><br />
     <%= c.hidden_field :top_id, value: @eachTopic.id %>
-    <%= c.hidden_field :user_id, value: @user%>
+    <%= c.hidden_field :user_id, value: current_user.id%>
     <%= c.submit "送信" %>
   <% end %>
 <% else %>

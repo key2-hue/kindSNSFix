@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many :top_users
-         has_many :tops, through: :top_users
+         has_many :top_users, dependent: :delete_all
+         has_many :tops, through: :top_users, dependent: :delete_all
 end
