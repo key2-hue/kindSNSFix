@@ -20,7 +20,10 @@ class Top extends React.Component{
 
     render() {
       return (
-        <button className="countUp" onClick={() => {this.countUp()}}>{this.state.count}</button>
+        <div className="goodPoint">
+          <i className="fab fa-twitter"></i>
+          <button className="countUp" onClick={() => {this.countUp()}}>{this.state.count}</button>
+        </div>
       )
     }
   }
