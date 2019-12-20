@@ -3,7 +3,6 @@
   <p>投稿者<%= @eachTopic.userName %>さん</p>
   <p><%= @eachTopic.content %><p>
   <%= link_to '削除', top_path(@eachTopic.id), method: :delete %>
-  <%= react_component('HelloMessage', name: 'Mike') %>
  <% else %>
   <p><%= @eachTopic.title %><p>
 <% end %>
@@ -20,11 +19,13 @@
         <p><%= c.word %></p>
         <%=link_to '削除', comment_path(c.id), method: :delete, class:"deleteComment"%>
       </div>
+      <%= react_component('Top', name:"Mike") %>
     </div>
   <% else %>
     <div class="eachComment">
       <p class="userName"><%= c.user.name%>さん</p>
       <p class="comment" ><%= c.word %></p>
+      <%= react_component('Top', name:"Mike") %>
     </div>
   <% end %>
 <% else %>
