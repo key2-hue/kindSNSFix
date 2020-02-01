@@ -4,7 +4,10 @@ class CommentController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       TopUser.create(user_id: @comment.user_id, top_id: @comment.top_id)
-      redirect_to top_index_path
+      respond_to do |format|
+        format.html{redirect_to top_index_path}
+        format.json
+      end
     end
   end
 
