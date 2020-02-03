@@ -17,3 +17,50 @@
  @import 'font-awesome-sprockets';
  @import "font-awesome";
 
+ //application.html.erb
+.kindSNS {
+  display: flex;
+  justify-content: space-between;
+  background-color: skyblue;
+}
+
+.title {
+  margin-left: 20px;
+}
+
+.titleName {
+  text-decoration: none;
+  color: #000;
+}
+
+.titleName:hover {
+  text-decoration: none;
+}
+
+.newRegistration, .login, .logout, .newPost {
+  margin: 30px 20px 0 0;
+  text-decoration: none;
+  color: skyblue;
+}
+
+
+
+.newPost,
+.logout,
+.newRegistration,
+.login {
+  color: #000;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.newPost:hover,
+.logout:hover,
+.newRegistration:hover,
+.login:hover {
+  text-decoration: none;
+}
+
+main {
+  height: calc(100vh - 94px);
+}

@@ -5,7 +5,7 @@ class TopController < ApplicationController
   end
 
   def index
-    @topics = Top.all.order(created_at: "DESC");
+    @topic = Top.order(created_at: "DESC").page(params[:page]).per(5)
   end
 
   def show
