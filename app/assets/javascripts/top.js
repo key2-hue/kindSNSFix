@@ -2,12 +2,16 @@ $(function(){
   function buildHTML(message) {
     var html = `
     <div class="eachComment">
-      <p class="userName">${comment.user_id}さん</p>
+      <p class="userName">${message.user_id}さん</p>
       <div class="erase">
         <p>${message.word}</p>
-        <a class="deleteComment", href="/comment/${comment.id}">削除</a> 
+        <a class="deleteComment", rel="nofollow", data-method="delete", href="/comment/${message.id}">削除</a> 
       </div>
-      <%= react_component('Top', name:"Mike") %>
+      <div data-react-class="Top" data-react-props="{"name":"Mike"}"
+      data-react-cache-id="Top-0">
+        <button type="button" class="btn btn-primary countUp" srtle="width: 150px; height: 30px;
+        line-height: 15px; font-size: 12px;">いいね！</button> 
+      </div>
     </div>
     `;
     return html;
