@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: kindSNS_production
   username: kindSNS
   password: <%= ENV['KINDSNS_DATABASE_PASSWORD'] %>

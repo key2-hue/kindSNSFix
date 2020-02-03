@@ -34,6 +34,10 @@ class TopController < ApplicationController
     redirect_to top_index_path
   end
 
+  def update
+
+  end
+
   def top_params
     params.require(:top).permit(:title, :genre, :content, :userName)
   end

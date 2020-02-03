@@ -30,7 +30,7 @@
       </div>
     <% else %>
       <div class="eachComment">
-        <p class="userName"><%= c.user.name%>さん</p>
+        <p class="userName"><%= index %>.<%= c.user.name%>さん</p>
         <p class="comment" ><%= c.word %></p>
         <%= react_component('Top', name:"Mike") %>
       </div>
