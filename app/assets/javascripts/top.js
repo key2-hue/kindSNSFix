@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message) {
-    var html = `
-    <div class="eachComment">
+    var html = 
+    `<div class="eachComment">
       <p class="userName">${message.name}さん</p>
       <div class="erase">
         <p>${message.word}</p>
