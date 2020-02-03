@@ -11,12 +11,14 @@ $(function(){
       data-react-cache-id="Top-0">
         <div class="goodPoint">
           <button type="button" class="btn btn-primary countUp" style="width: 150px; height: 30px; line-height: 15px; font-size: 12px;">いいね！</button> 
+          
         </div>
       </div>
     </div>
     `;
     return html;
   }
+  
   $('#new_comment').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -31,8 +33,14 @@ $(function(){
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.eachComment').last().append(html);
+      $('.allComments').append(html);
       $('#comment_word').val('');
+      $('.comment-submit').prop('disabled', false);
+      $('.noComment').remove();
+      $('.allComments').animate({scrollTop: '100px'});
+    })
+    .fail(function(){
+      alert('error');
       $('.comment-submit').prop('disabled', false);
     })
   });

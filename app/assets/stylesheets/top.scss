@@ -21,6 +21,16 @@
   border-bottom: 1px solid gray;
 }
 
+.eachComment > p,
+.eachComment > div,
+.erase {
+  margin-left: 20px;
+}
+
+.eachComment > div {
+  margin-bottom: 10px;
+}
+
 .deleteComment {
   text-decoration: none;
 }

@@ -15,35 +15,40 @@
 
 
 
-
-<% @commentAll.each.with_index(1) do |c, index|%>
-<% if user_signed_in? %>
-  <% if c.user.name == current_user.name %>
+<div class="allComments">
+  <% if @commentAll.any? %>
+  <% @commentAll.each.with_index(1) do |c, index|%>
+  <% if user_signed_in? %>
+    <% if c.user.name == current_user.name %>
+      <div class="eachComment">
+        <p class="userName"><%= index %>.<%= c.user.name%>さん</p>
+        <div class="erase">
+          <p><%= c.word %></p>
+          <%=link_to '削除', comment_path(c.id), method: :delete, class:"deleteComment"%>
+        </div>
+        <%= react_component('Top', name:"Mike") %>
+      </div>
+    <% else %>
+      <div class="eachComment">
+        <p class="userName"><%= c.user.name%>さん</p>
+        <p class="comment" ><%= c.word %></p>
+        <%= react_component('Top', name:"Mike") %>
+      </div>
+    <% end %>
+  <% else %>
     <div class="eachComment">
       <p class="userName"><%= index %>.<%= c.user.name%>さん</p>
       <div class="erase">
         <p><%= c.word %></p>
-        <%=link_to '削除', comment_path(c.id), method: :delete, class:"deleteComment"%>
       </div>
       <%= react_component('Top', name:"Mike") %>
     </div>
-  <% else %>
-    <div class="eachComment">
-      <p class="userName"><%= c.user.name%>さん</p>
-      <p class="comment" ><%= c.word %></p>
-      <%= react_component('Top', name:"Mike") %>
-    </div>
   <% end %>
-<% else %>
-  <div class="eachComment">
-    <p class="userName"><%= index %>.<%= c.user.name%>さん</p>
-    <div class="erase">
-      <p><%= c.word %></p>
-    </div>
-    <%= react_component('Top', name:"Mike") %>
-  </div>
-<% end %>
-<% end %>
+  <% end %>
+  <% else %>
+    <p class="noComment">まだコメントはありません</p>
+  <% end %>
+</div>
 
 <% if user_signed_in? %>
   <p>コメントする</p>
