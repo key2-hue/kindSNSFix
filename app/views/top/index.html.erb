@@ -1,4 +1,13 @@
-<div class="topicAll">
+<div class="start"> 
+  このサイトについて
+</div>
+<div class="explanation">
+  <div class="explanation-child">
+    <p class="close-about">[x]</p>
+    <p>優しい掲示板です。誹謗中傷の書き込みはNGです。</p>
+  </div>
+</div>
+<div class="topicsAll">
   <div class="topics">
     <% @topic.each do |topic| %>
       <div class="topicAll">
@@ -13,4 +22,5 @@
     </div>
   </div>
 </div>
+
 <%= paginate(@topic) %>

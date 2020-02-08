@@ -97,4 +97,19 @@ $(function(){
     });
   });
   
+  $(".explanation-child").addClass("explanation-off")
+  
+  $('.start').on('click', function(){
+    $(".explanation").addClass("explanation-on")
+    $(".explanation-child").css({"display": "block"});
+    $(".explanation-child").removeClass("explanation-childOff")
+    $(".explanation").removeClass("explanation-off")
+  });
+
+  $('.close-about').on('click', function(){
+    $(".explanation").addClass("explanation-off")
+    $(".explanation-child").css({"display": "none"});
+    $(".explanation").addClass("explanation-on")
+  });
+
   });

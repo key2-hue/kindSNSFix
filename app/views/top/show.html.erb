@@ -1,13 +1,16 @@
 <% if user_signed_in? %>
   <% if @eachTopic.userName == current_user.name %>
+    <h2>タイトル</h2>
     <h2><%= @eachTopic.title %></h2>
     <p>投稿者<%= @eachTopic.userName %>さん</p>
     <p><%= @eachTopic.content %><p>
     <%= link_to '削除', top_path(@eachTopic.id), method: :delete %>
   <% else %>
+    <h2>タイトル</h2>
     <p><%= @eachTopic.title %><p>
   <% end %>
 <% else %>
+  <h2>タイトル</h2>
   <h2><%= @eachTopic.title %></h2>
   <p>投稿者<%= @eachTopic.userName %>さん</p>
   <p><%= @eachTopic.content %><p>

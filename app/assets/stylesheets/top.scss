@@ -4,11 +4,11 @@
 
 //index.html.erb
 
-.topicAll {
-  width: calc(100vw - 200px);
+.topicsAll {
   display: flex;
+  justify-content: space-between;
   user-select: none;
-  margin-left: 20px;
+  margin: 0 50px;
 }
 
 .topicTitle {
@@ -17,13 +17,51 @@
 }
 
 
+
 .topics {
   margin-top: 50px;
-  width: calc(100vw - 200px);
 }
 
-.topicSearch {
-  width: 100px;
+.topicAll {
+  justify-content: space-between;
+}
+
+
+.explanation-on {
+  position: fixed;
+  z-index: 1;
+  left:0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  animation: fadeIn 0.4s 1;
+}
+
+@keyframes fadeIn {
+  from {
+    display: none;
+    opacity:0;
+  }
+  to {
+    display: block;
+    background-color: gray;
+    opacity: 0.6;
+  }
+}
+
+
+.explanation-off {
+  display:none;
+  transition: 0.2s;
+}
+
+.explanation-child {
+  display:none;
+  background-color: white;
+  width: 400px;
+  margin: auto;
+  position: relative; 
+  top: 40%;
 }
 
 //show.html.erb
