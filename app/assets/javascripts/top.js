@@ -44,5 +44,26 @@ $(function(){
       $('.comment-submit').prop('disabled', false);
     })
   });
+
+
+  $('.searchingTopics').on('keyup', function(){
+    var search = $('searchingTopics').val();
+    $.ajax({
+      type: "GET",
+      url: "/top",
+      data: {keyword: search},
+      dataType: "json",
+      processData: false,
+      contentType: false
+    })
+    .done(function(topic){
+      console.log('成功');
+     })
+    .fail(function(topics){
+      
+
+      console.log(topics); 
+    });
+  });
   
   });
