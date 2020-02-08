@@ -45,24 +45,55 @@ $(function(){
     })
   });
 
+  function addTopic(topic) {
+    let html = `
+      <div class="topic-result">
+        <a href="/top/${topic.id}">${topic.title}</a>
+      </div>
+    `;
+    $(".search-results").append(html);
+  }
+
+  function noTopic(topic) {
+    let html = `
+      <div class="topic-result">
+        <p>該当するタイトルはありません。</p>
+      </div>
+    `;
+    $(".search-results").append(html);
+  }
+
 
   $('.searchingTopics').on('keyup', function(){
     var search = $('searchingTopics').val();
+    if (search === "") {
+      $(".search-results").empty();
+    }
     $.ajax({
       type: "GET",
       url: "/top",
       data: {keyword: search},
       dataType: "json",
-      processData: false,
-      contentType: false
+      
     })
-    .done(function(topic){
+    .done(function(topics){
+      $(".search-results").empty();
+      
+      
+      if (topics.length !== 0) {
+        topics.forEach(function(top){ 
+          addTopic(top);
+        });
+      } else if (search.length === 0) {
+        return false;
+      } else {
+        noTopic();
+      }
+      
       console.log('成功');
      })
     .fail(function(topics){
-      
-
-      console.log(topics); 
+      console.log(topics.title); 
     });
   });
   
