@@ -65,8 +65,8 @@ $(function(){
 
 
   $('.searchingTopics').on('keyup', function(){
-    var search = $('searchingTopics').val();
-    if (search === "") {
+    var search = $('.searchingTopics').val();
+    if (search == "") {
       $(".search-results").empty();
     }
     $.ajax({
@@ -84,8 +84,8 @@ $(function(){
         topics.forEach(function(top){ 
           addTopic(top);
         });
-      } else if (search.length === 0) {
-        return false;
+      } else if (search == "") {
+        $(".search-results").empty();
       } else {
         noTopic();
       }
