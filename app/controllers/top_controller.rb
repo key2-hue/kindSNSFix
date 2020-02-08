@@ -7,10 +7,12 @@ class TopController < ApplicationController
   def index
     @topic = Top.order(created_at: "DESC").page(params[:page]).per(5)
 
-
+    return nil if params[:keyword] == ""
 
     @searchTopic = Top.where('title LIKE ?', "#{params[:keyword]}%")
     
+    
+
     respond_to do |format|
       format.html
       format.json

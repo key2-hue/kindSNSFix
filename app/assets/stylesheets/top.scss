@@ -5,9 +5,10 @@
 //index.html.erb
 
 .topicAll {
-  width: calc(100vw - 100px);
-  margin: 0 auto;
+  width: calc(100vw - 200px);
+  display: flex;
   user-select: none;
+  margin-left: 20px;
 }
 
 .topicTitle {
@@ -16,9 +17,13 @@
 }
 
 
-
 .topics {
   margin-top: 50px;
+  width: calc(100vw - 200px);
+}
+
+.topicSearch {
+  width: 100px;
 }
 
 //show.html.erb

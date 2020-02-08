@@ -93,7 +93,7 @@ $(function(){
       console.log('成功');
      })
     .fail(function(topics){
-      console.log(topics.title); 
+      console.log('失敗'); 
     });
   });
   

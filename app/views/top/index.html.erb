@@ -1,14 +1,16 @@
-<div class="topicSearch">
-  <input type="text" class="searchingTopics">
-  <div class="search-results">
+<div class="topicAll">
+  <div class="topics">
+    <% @topic.each do |topic| %>
+      <div class="topicAll">
+        <p><%=link_to topic.title, top_path(topic.id), class:"topicTitle" %></p>
+        <p>投稿者<%= topic.userName %>さん</p> 
+      </div>
+    <% end %> 
   </div>
-</div>
-<div class="topics">
-  <% @topic.each do |topic| %>
-    <div class="topicAll">
-      <p><%=link_to topic.title, top_path(topic.id), class:"topicTitle" %></p>
-      <p>投稿者<%= topic.userName %>さん</p> 
+  <div class="topicSearch">
+    <input type="text" class="searchingTopics" placeholder="探したいタイトルを入力してください">
+    <div class="search-results"> 
     </div>
-  <% end %> 
+  </div>
 </div>
 <%= paginate(@topic) %>
