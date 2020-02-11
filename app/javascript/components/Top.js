@@ -12,11 +12,15 @@ class Top extends React.Component{
      }
    }
 
-   countUp() {
+   countUp(count) {
      this.setState(
       {
         count: this.state.count + 1
       })
+      fetch(this.props.url, {
+        method: 'PATCH',
+
+      });
    }
 
    countDown() {
@@ -25,15 +29,15 @@ class Top extends React.Component{
      });
    }
 
-  //  componentDidUpdate() {
-  //    localStorage.setItem('count', JSON.stringify(this.state.count))
-  //  }
+   componentDidUpdate() {
+     localStorage.setItem('count', JSON.stringify(this.state.count))
+   }
 
-  //  componentDidMount() {
-  //    this.setState({
-  //      count: JSON.parse(Number(localStorage.getItem('count')))
-  //    })
-  //  }
+   componentDidMount() {
+     this.setState({
+       count: JSON.parse(Number(localStorage.getItem('count')))
+     })
+   }
 
     render() {
       let count = {
@@ -45,7 +49,7 @@ class Top extends React.Component{
       return (
         <div className="goodPoint">    
           <button type="button" className="btn btn-primary countUp" style={count}
-           onClick={() => {this.countUp() }} id={this.props.id}>いいね！</button> 
+           onClick={() => {this.countUp(this.props.id) }} id={this.props.id}>いいね！</button> 
            <p className="messageCount">{this.state.count}</p>
            <button type="button" className="btn btn-danger countDown" style={count}
            onClick={() => {this.countDown() }} id={this.props.id}>うーん...</button>

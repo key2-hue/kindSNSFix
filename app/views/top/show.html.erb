@@ -29,7 +29,7 @@
               <p><%= c.word %></p>
               <%=link_to '削除', comment_path(c.id), method: :delete, class:"deleteComment"%>
             </div>
-            <%= react_component('Top', name:"Mike", id:"#{c.id}") %>
+            <%= react_component('Top', name:"Mike", id:"#{c.id}", url: "/top/#{c.id}") %>
           </div>
         <% else %>
           <div class="eachComment">
