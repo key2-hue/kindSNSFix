@@ -39,7 +39,7 @@ class Top extends React.Component{
       return (
         <div className="goodPoint">    
           <button type="button" className="btn btn-primary countUp" style={count}
-           onClick={() => {this.countUp()}}>いいね！</button> {this.state.count}
+           onClick={() => {this.countUp() }} id={this.props.id}>いいね！</button> {this.state.count}
         </div>
       )
     }
