@@ -11,7 +11,7 @@ $(function(){
       data-react-cache-id="Top-0">
         <div class="goodPoint">
           <button type="button" class="btn btn-primary countUp" style="width: 150px; height: 30px; line-height: 15px; font-size: 12px;">いいね！</button> 
-          
+          <p class="messageCount">${message.count}</p>
         </div>
       </div>
     </div>
@@ -111,5 +111,9 @@ $(function(){
     $(".explanation-child").css({"display": "none"});
     $(".explanation").addClass("explanation-on")
   });
+
+  $('.countUp').on('click', function() {
+
+  })
 
   });

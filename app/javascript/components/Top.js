@@ -19,6 +19,12 @@ class Top extends React.Component{
       })
    }
 
+   countDown() {
+     this.setState({
+       count: this.state.count - 1
+     });
+   }
+
    componentDidUpdate() {
      localStorage.setItem('count', JSON.stringify(this.state.count))
    }
@@ -39,7 +45,10 @@ class Top extends React.Component{
       return (
         <div className="goodPoint">    
           <button type="button" className="btn btn-primary countUp" style={count}
-           onClick={() => {this.countUp() }} id={this.props.id}>いいね！</button> {this.state.count}
+           onClick={() => {this.countUp() }} id={this.props.id}>いいね！</button> 
+           <p class="messageCount">{this.state.count}</p>
+           <button type="button" className="btn btn-danger countDown" style={count}
+           onClick={() => {this.countDown() }} id={this.props.id}>うーん...</button>
         </div>
       )
     }
