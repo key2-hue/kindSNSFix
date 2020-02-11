@@ -46,7 +46,11 @@ class TopController < ApplicationController
   end
 
   def update
-
+    @countUp = Comment.find(params[:up]);
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def top_params

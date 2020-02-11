@@ -101,6 +101,7 @@ $(function(){
   $(".explanation-child").addClass("explanation-off")
   
   $('.start').on('click', function(){
+    console.log(1);
     $(".explanation").addClass("explanation-on")
     $(".explanation-child").css({"display": "block"});
     $(".explanation-child").removeClass("explanation-childOff")
@@ -114,7 +115,22 @@ $(function(){
   });
 
   $('.countUp').on('click', function() {
+    console.log(1);
+    var countUp = $(this).attr('id');
+    console.log(countUp);
+    $.ajax({
+      type: "PATCH",
+      url: top_index,
+      data: {up: countUp},
+      datatype: "json",
+    })
+    // var countUp = $(this).parent().find('.messageCount').text().to_i;
+    .done(function(countUp) {
+      console.log("a");
+      countUp.count.to_i++
+    }).fail(function(){
 
+    });
   })
 
   });
