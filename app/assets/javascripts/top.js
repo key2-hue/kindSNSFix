@@ -12,6 +12,7 @@ $(function(){
         <div class="goodPoint">
           <button type="button" class="btn btn-primary countUp" style="width: 150px; height: 30px; line-height: 15px; font-size: 12px;">いいね！</button> 
           <p class="messageCount">${message.count}</p>
+          <button type="button" class="btn btn-danger countUp" style="width: 150px; height: 30px; line-height: 15px; font-size: 12px; margin-left: 10px;">うーん...</button> 
         </div>
       </div>
     </div>
