@@ -122,6 +122,24 @@
   margin:0 5px 0 0;
 }
 
+.return {
+  display: block;
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  background-color: skyblue;
+  color: #000;
+  
+}
+
+.return:hover {
+  text-decoration: none;
+}
+
 //top.js
 
 #new_comment {
